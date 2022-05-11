@@ -1,0 +1,115 @@
+﻿<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>PDF</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+    <body class="is-preload">
+
+        <!----
+        <script>
+            var url_string = window.location.href; //window.location.href
+            var url = new URL(url_string);
+            var c = url.searchParams.get("name");
+            document.getElementById("pdf").src = c;
+        </script>
+
+        <iframe src="" id="pdf" width="100%" height="1200px"></iframe>
+        <!---->
+
+        <!-- Wrapper -->
+        <div id="wrapper">
+
+
+
+            <!---->
+            <!---->
+            <!-- Header -->
+            <header id="header">
+                <div class="inner">
+
+
+                    <!-- Nav -->
+                    <nav>
+                        <ul>
+                            <li><a href="#menu">Menu</a></li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </header>
+
+
+
+            <!-- Menu -->
+            <nav id="menu">
+                <h2>Menu</h2>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Orca.html">Orca IoT Marketing Demo</a></li>
+                    <li><a href="GTRIScalingStudy.html">ML Scaling Study and Mixup GTRI</a></li>
+                    <li><a href="MLClassProject.html">Semantic Segmentation ML Class Project</a></li>
+                    <li><a href="Unisim.html">Simulation of Trading on Uniswap Class Project</a></li>
+                    <li><a href="Composer.html">Blending Songs using an Autoencoder</a></li>
+                    <li><a href="Carnegie.html">Carnegie Mellon Game Design in Unity 3D</a></li>
+                </ul>
+            </nav>
+
+            <table>
+
+                <tr>
+                    <td>
+                        <video width="960" height="720" controls>
+                            <source src="video/Neural Composer 2022-05-10 21-21-11.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </td>
+
+                    <td style="text-align:left;vertical-align:top;padding:0">
+                        <p>
+                            I was inspired to tinker with a project originally made by Code Parade (https://youtu.be/UWxfnNXlVy8)
+                            This autoencoder compressed music into a laternt vector, and then decompressed it back into the original song. PCA is used to make the latent vector represent independent features.
+                            The Autoencoder can write an original song if given a random latent vector.
+
+                            <br />
+
+                            I retrained the autoencoder on a different dataset, and modified it to smoothly blend two songs.
+                            Within the low dimensional latent space, it is possible to take a linear
+                            path between any 2 latent vectors that represent songs. The
+                            smooth transition in the latent space translates to a smooth transition in the music regardless of how
+                            different the songs are from each other.
+
+                            <br />
+
+                            This video is of 3 different songs blended together. Each song plays in full once and then transitions to the next song. The sliders at the top represent the latent vector the song is created from.
+                            The sliders at the bottom represent playback parameters such as volume, tempo and confidence threshold. In the center is a piano roll representation of the song, red notes are ignored due to low confidence.
+                            Notice how during blending the sliders smoothly move resulting in changes in the piano roll.
+
+                        </p>
+                    </td>
+
+                </tr>
+
+            </table>
+
+
+
+        </div>
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+
+    </body>
+</html>
