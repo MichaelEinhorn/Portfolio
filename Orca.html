@@ -71,12 +71,12 @@
 
                     <td style="text-align:left;vertical-align:top;padding:0">
                         <p>
-                            This is a marketing demo of how to divide an image into multiple overlapping tiles and recombine all the detected boxes. I made the video and the code for the model, I am not the presenter.
+                            This is a marketing demo of how to divide an image into multiple overlapping tiles and recombine all the detected boxes. I made the animation and the code for the model, I am not the presenter.
                             <br />
                             I coded a Yolo model in AWS Neuron using the Inferentia Chip which
                             was both more accurate and less expensive per 100 images than AWS Rekognition analyzing our in house
                             dataset. This program concurrently ran 3 instances of the model on the Inferentia Chip, preprocessing of slicing images into tiles,
-                            and postprocessing of removing duplicate detections on the CPU. This created a pipeline where a different image could be at each step and processed at the same time to maximize throughput which minimizes cost.
+                            and postprocessing of removing duplicate detections and sending data to the SQL database on the CPU. This created a pipeline where a different image could be at each step and processed at the same time to maximize throughput which minimizes cost.
 
 
                         </p>
