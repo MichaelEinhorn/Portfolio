@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Semantic Segmentation</title>
+		<title>SERI MATS</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -28,17 +28,30 @@
         <!-- Wrapper -->
         <div id="wrapper">
 
-            <h1>Machine Learning Class Project</h1>
-            <p>
-                Programmed in Python using NumPy. Implemented models and algorithms such as A* Search, 
-                Gaussian Mixture Model, Decision Trees, Reinforcement Learning, Semi-Supervised Learning, 
-                Neural Networks. Worked on a semester long team project with Semantic Segmentation using 
-                Convolutional Neural Networks. After training on labeled images of pet cats and dogs, 
-                the model was able to generalize to segment images of wildlife such as bears, elk and birds.
-            </p>
+            <h1>AI Alignment Team Shard</h1>
+            <p>I am in the SERI MATS program in the Agent Foundations Stream mentored by John Wentworth. I am the ML Engineer on Team Shard.</p>
+            <p>It appears that there is a general consensus that RL seems to be more dangerous than iid training, but its not clear which feature of RL is the
+                primary cause of this concern and how far it generalizes to similar approaches.
+We are fine tunning a language model to play text adventures with RL and Rejection Sampling and will
+                interpret what this optimization process changes in the network with interpretability tools,
+                measuring out of distribution behavior and KL divergence. We are designing an optimization procedure which gives process level
+                feedback on chains of thought in addition to behavior feedback on the task.
+                We will use these experiments to create a theory of value learning in different optimization procedures.
+</p>
+            <p>Some of the considerations that led into choosing Language Models on text adventure games were: <br>
+                Language models understand many human concepts from pretraining.
+            We believe that a Large Language Model with some form of Fine Tuning is the route we will take to AGI.
+            We wanted a single player game that we could vary from simple to complex as we scale the size of the model.
+            We wanted an environment for the model to interact with, and not just a single prompt and response. </p>
+            <p>My current progress is making a working implementation of PPO and Rejecion Sampling for Language Models.
+                Some of the next steps are to create models trained on text adventure games with RL and Rejection Sampling, and compare the results.
+                Run a similar experiment with larger models and chain of thought reasoning on RL and Rejection Sampling.
+                Test if the process level feedback creates a more robust understanding of how to do the task in the framework of human reasoning and values.</p>
+
+            <p>Check out this post by David Udell, <a href="https://www.lesswrong.com/posts/ZNXDRGshgoq3cmxhB/the-shard-theory-alignment-scheme">The Shard Theory Alignment Scheme,</a>
+            for more info on our team's vision.</p>
 
             <!---->
-            <iframe src="MLClassProject.pdf" width="100%" height="1200px"></iframe>
             <!---->
             <!-- Header -->
             <header id="header">
