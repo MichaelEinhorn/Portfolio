@@ -31,12 +31,12 @@
             <h1>AI Alignment Team Shard</h1>
             <p>I am in the Stanford Existential Risk Initiative Machine Learning Alignment Theory Scholars (SERI MATS) program.
                  I am the ML Engineer on Team Shard under the Agent Foundations Stream mentored by John Wentworth.</p>
-            <p>It appears that there is a general consensus that RL seems to be more dangerous than iid training, but its not clear which feature of RL is the
+            <p>It appears that there is a general consensus that RL is likely more dangerous than iid training, 
+                but its not clear which feature of RL is the
                 primary cause of this concern and how far it generalizes to similar approaches.
 We are fine tunning a language model to play text adventures with RL and Rejection Sampling and will
                 interpret what this optimization process changes in the network with interpretability tools,
-                measuring out of distribution behavior and KL divergence. We are designing an optimization procedure which gives process level
-                feedback on chains of thought in addition to behavior feedback on the task.
+                measuring out of distribution behavior and KL divergence.
                 We will use these experiments to create a theory of value learning in different optimization procedures.
 </p>
             <p>Some of the considerations that led into choosing Language Models on text adventure games were: <br>
@@ -44,14 +44,42 @@ We are fine tunning a language model to play text adventures with RL and Rejecti
             We believe that a Large Language Model with some form of Fine Tuning is the route we will take to AGI.
             We wanted a single player game that we could vary from simple to complex as we scale the size of the model.
             We wanted an environment for the model to interact with, and not just a single prompt and response. </p>
-            <p>My current progress is making a working implementation of PPO and Rejecion Sampling for Language Models.
-                I can train a 20 Billion Parameter Transformer distributed across 8 GPUs with Deepspeed in Pytorch Lightning.
-                Some of the next steps are to create models trained on text adventure games with RL and Rejection Sampling, and compare the results.
-                Run a similar experiment with larger models and chain of thought reasoning on RL and Rejection Sampling.
-                Test if the process level feedback creates a more robust understanding of how to do the task in the framework of human reasoning and values.</p>
+            <p>
+                The current goal is to create multiple competant models trained with these different methods for comparison.
+                I am training Gpt Neox 20 Billion distributed across 8 GPUs with Deepspeed in Pytorch Lightning.
+                The model is initially learning, but gets stuck and then become incoherent in the 
+                middle of the game where there are more options available.
+                Prompt engineering and hyperparameter tuning has significantly improved this, though it is not quite competant yet. <br>
+                
+                A few of the common failures I have seen are the model becoming incoherent and spamming random 
+                tokens from other languages, collapse into spamming a single token which was most often take, 
+                and always copy pasting the previous action from the context. In the first failure the completions 
+                have 0 probability, so it is likely the model learned from random noise and lobotomized itself. 
+                The other 2 failures have outputs of high probabilities and look more like the mode collapse seen in RLHF models.
+                <br>
+                One of the interpretability tools we are interested in using is tuned lens, which looks for token's 
+                being considered in each layer of the model. One of the things we would be looking for is where in the 
+                model does mode collapse occur.
+                <br>
+                Some behavioral tests we are interested in are bringing the model back to the pretrained distribution 
+                to see if it is still competent, and if it has retained values around useful items in the game such 
+                as the key outside of the game's context. We would also test if the model is better able to predict 
+                the text adventures response. Another test is to see if the model learns to predict the text response 
+                of the game, even though it is not trained on these tokens of the prompt.
+                We will be looking at multiple checkpoints from different times in the training process, and comparing 
+                this to different points on the linear path from the pretrained and finetuning network.
+                </p>
+
+                <p>I expect agency to not be a single concept, but a collection of features that can be learned separately. 
+                    It's not clear which of these features are the main concern for making an agent dangerous, 
+                    or how different training processes might bias policies to learn a different mix of these features. 
+                    I expect the same to be true of RL like finetunings, but it could be the case that many of the methods 
+                    we currently have are just more convoluted ways of getting the same thing. </p>
 
             <p>Check out this post by David Udell, <a href="https://www.lesswrong.com/posts/ZNXDRGshgoq3cmxhB/the-shard-theory-alignment-scheme">The Shard Theory Alignment Scheme,</a>
-            for more info on our team's vision.</p>
+            for more info on our team's plan.</p>
+
+            <a href="https://github.com/MichaelEinhorn/trl-textworld">trl-textworld repo</a>
 
             <!---->
             <!---->
