@@ -29,57 +29,85 @@
         <div id="wrapper">
 
             <h1>AI Alignment Research on Team Shard</h1>
-            <p>I am in the Stanford Existential Risk Initiative Machine Learning Alignment Theory Scholars (SERI MATS) program.
+            <p>I am in the <a href="www.serimats.org">Stanford Existential Risk Initiative Machine Learning Alignment Theory Scholars (SERI MATS) program</a>.
                  I am the ML Engineer on Team Shard under the Agent Foundations Stream mentored by John Wentworth.</p>
-            <p>It appears that there is a general consensus that RL is likely more dangerous than iid training, 
-                but its not clear which feature of RL is the
-                primary cause of this concern and how far it generalizes to similar approaches.
-We are fine tunning a language model to play text adventures with RL and Rejection Sampling and will
+            
+            <p>We are fine tunning a language model to play text adventures with RL and Rejection Sampling and will
                 interpret what this optimization process changes in the network with interpretability tools,
                 measuring out of distribution behavior and KL divergence.
-                We will use these experiments to create a theory of value learning in different optimization procedures.
-</p>
-            <p>Some of the considerations that led into choosing Language Models on text adventure games were: <br>
-                Language models understand many human concepts from pretraining.
-            We believe that a Large Language Model with some form of Fine Tuning is the route we will take to AGI.
-            We wanted a single player game that we could vary from simple to complex as we scale the size of the model.
-            We wanted an environment for the model to interact with, and not just a single prompt and response. </p>
-            <p>
+                We will use these experiments to create a theory of value learning in different optimization procedures. 
+                <br>
+                Some of the considerations that led into choosing Language Models on text adventure games were: 
+                <br>
+                Language Models understand many human concepts from pretraining. 
+                We believe that a Large Language Model with some form of Fine Tuning is the route we will take to AGI.
+                We wanted a single player game that we could vary from simple to complex as we scale the size of the model.
+                We wanted an environment for the model to interact with, and not just a single prompt and response. 
+            <br>
                 The current goal is to create multiple competant models trained with these different methods for comparison.
                 I am training Gpt Neox 20 Billion distributed across 8 GPUs with Deepspeed in Pytorch Lightning.
                 The model is initially learning, but gets stuck and then become incoherent in the 
                 middle of the game where there are more options available.
-                Prompt engineering and hyperparameter tuning has significantly improved this, though it is not quite competant yet. <br>
+                Prompt engineering and hyperparameter tuning has significantly improved this, though it is not quite competant yet. 
+                <br>
+            </p>
+                 <p>It appears that there is a general consensus that RL is likely more dangerous than iid training, 
+                but its not clear which feature of RL is the
+                primary cause of this concern and how far it generalizes to similar approaches.
+                I expect agency to not be a single concept, but a collection of features that can be learned separately. 
+                It's not clear which of these features are the main concern for making an agent dangerous, 
+                or how different training processes might bias policies to learn a different mix of these features. 
+                I expect the same to be true of RL like finetunings, but it could be the case that many of the methods 
+                we currently have are just more convoluted ways of getting the same thing.
+                <br>
+
+             
                 
                 A few of the common failures I have seen are the model becoming incoherent and spamming random 
                 tokens from other languages, collapse into spamming a single token which was most often take, 
-                and always copy pasting the previous action from the context. In the first failure the completions 
-                have 0 probability, so it is likely the model learned from random noise and lobotomized itself. 
-                The other 2 failures have outputs of high probabilities and look more like the mode collapse seen in RLHF models.
+                or always copy pasting the previous action from the context. In the first failure the completions 
+                have 0 probability, so it is likely the model learned from random noise. 
+                The other 2 failures have outputs of high probabilities and look more like the 
+                <a href="https://www.lesswrong.com/posts/t9svvNPNmFf5Qa3TA/mysteries-of-mode-collapse">mode collapse</a> seen in RLHF models.
                 <br>
-                One of the interpretability tools we are interested in using is tuned lens, which looks for token's 
+                One of the interpretability tools we are interested in using is <a href="https://github.com/norabelrose/white-box">tuned lens</a>, which looks for what tokens are 
                 being considered in each layer of the model. One of the things we would be looking for is where in the 
-                model does mode collapse occur.
+                model does mode collapse occur, and which layers changed the most compared to the reference model.
                 <br>
-                Some behavioral tests we are interested in are bringing the model back to the pretrained distribution 
-                to see if it is still competent, and if it has retained values around useful items in the game such 
+                Some behavioral tests we are interested in are bringing the model back to the pretraining distribution 
+                to see if it is still competent at general text prediction, and if it has retained values around useful items in the game such 
                 as the key outside of the game's context. We would also test if the model is better able to predict 
-                the text adventures response. Another test is to see if the model learns to predict the text response 
-                of the game, even though it is not trained on these tokens of the prompt.
+                the text adventures response.
                 We will be looking at multiple checkpoints from different times in the training process, and comparing 
                 this to different points on the linear path from the pretrained and finetuning network.
                 </p>
 
-                <p>I expect agency to not be a single concept, but a collection of features that can be learned separately. 
-                    It's not clear which of these features are the main concern for making an agent dangerous, 
-                    or how different training processes might bias policies to learn a different mix of these features. 
-                    I expect the same to be true of RL like finetunings, but it could be the case that many of the methods 
-                    we currently have are just more convoluted ways of getting the same thing. </p>
-
             <p>Check out this post by David Udell, <a href="https://www.lesswrong.com/posts/ZNXDRGshgoq3cmxhB/the-shard-theory-alignment-scheme">The Shard Theory Alignment Scheme,</a>
             for more info on our team's ideas.</p>
 
-            <a href="https://github.com/MichaelEinhorn/trl-textworld">trl-textworld repo</a>
+            <br>
+                <p>Another Smaller Scale experiment I ran was a tiny transformer playing prisoners dillemas against itself.
+                    This transformer is trained from random initialization, and has a vocab size of 2. One token for cooperate and one token for defect.
+                    It generates a sequence of coops and defects and gets rewarded per token based off a prisoner dillema of the current token and the previous token. 
+                    Whether the model decides to always cooperate or always defect means whether the training process was myopic or nonmyopic.
+                    <br>
+                    When using this payoff matrix, at discount rate 0.5, the strategies always cooperate and always defect have equal discounted returns. 
+                    The sum of all 4 rewards is 0, so a random sequence will get about 0 reward. 
+                    The interesting thing about this matrix is that the strategy of alternating cooperate and defect has higher discounted returns than either of the above at discount rates near 0.5.<br>
+                    [[0.5, -1.76139],<br>
+                        [2, -0.738613]]<br>
+                     This may represent a more complex optimal strategy compared to a good simple strategy. It does show a difference between 2 of the finetuning methods I tested.<br>
+                     When training with PPO, the model imediately learned the alternating strategy and spent the rest of the training time upweighting this.<br>
+                    When training with rejection sampling, the model initially learned to always defect and later learned to alternate.</p>
+                     <img src="images/ppo.jpg" alt="prisoner" width="1000" height="500">
+                     <img src="images/rejection.jpg" alt="prisoner" width="1000" height="500">
+                     <p>The x axis is epoch, the y axis is frequency. The colors represent which reward out of the payoff matrix was recieved.</p>
+                    
+
+                    
+
+            <a href="https://github.com/MichaelEinhorn/trl-textworld">trl-textworld repo</a> <br>
+            <a href="https://github.com/MichaelEinhorn/prisonerUnitTest">prisonerUnitTest repo</a>
 
             <!---->
             <!---->
