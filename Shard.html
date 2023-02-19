@@ -29,8 +29,17 @@
         <div id="wrapper">
 
             <h1>AI Alignment Research SERI MATS</h1>
-            <p>I am in the <a href="www.serimats.org">Stanford Existential Risk Initiative Machine Learning Alignment Theory Scholars (SERI MATS) program</a>.
-                 I am the ML Engineer on Team Shard under the Agent Foundations Stream mentored by John Wentworth.</p>
+            <p>I was in the <a href="www.serimats.org">Stanford Existential Risk Initiative Machine Learning Alignment Theory Scholars (SERI MATS) program</a>.
+                 I was the ML Engineer on Team Shard under the Agent Foundations Stream mentored by John Wentworth.</p>
+
+                <p><b>Overall Thoughts</b><br>
+                If we were to resume this project, I think we would start with reevaluating the direction. 
+                It may be the case that GPT-Neox 20B and Textworld were not the right model and environment to study how language models learn with RL finetuning.
+                While the model didn't end up being competant enough at the game to investigate how it learned to play, 
+                I think it was still a valuable learning experience for how to set up experiments with language models, and how PPO works. </p>
+
+                <a href="https://github.com/MichaelEinhorn/trl-textworld">trl-textworld repo</a> <br>
+                <a href="https://github.com/MichaelEinhorn/prisonerUnitTest">prisonerUnitTest repo</a> <br><br>
             
             <p>We are fine tunning a language model to play text adventures with RL and Rejection Sampling and will
                 interpret what this optimization process changes in the network with interpretability tools,
@@ -46,23 +55,22 @@
             <br>
                 The current goal is to create multiple competant models trained with these different methods for comparison.
                 I am training Gpt Neox 20 Billion distributed across 8 GPUs with Deepspeed in Pytorch Lightning.
-                The model is initially learning, but gets stuck and then become incoherent in the 
-                middle of the game where there are more options available.
-                Prompt engineering and hyperparameter tuning has significantly improved this, though it is not quite competant yet. 
                 <br>
-            </p>
-                 <p>It appears that there is a general consensus that RL is likely more dangerous than iid training, 
+                 It appears that there is a general consensus that RL is likely more dangerous than iid training, 
                 but its not clear which feature of RL is the
                 primary cause of this concern and how far it generalizes to similar approaches.
                 I expect agency to not be a single concept, but a collection of features that can be learned separately. 
                 It's not clear which of these features are the main concern for making an agent dangerous, 
                 or how different training processes might bias policies to learn a different mix of these features. 
                 I expect the same to be true of RL like finetunings, but it could be the case that many of the methods 
-                we currently have are just more convoluted ways of getting the same thing.
+                we currently have are just more convoluted ways of getting the same thing. 
+                Having language models trained with different methods on a simple task with an objective simple reward function would be helpful to test for any differences.
                 <br>
 
-             
-                
+                <p>
+                The model is initially learning, but gets stuck and then become incoherent in the 
+                middle of the game where there are more options available.
+                Prompt engineering and hyperparameter tuning has significantly improved this, though it is not quite competant yet. 
                 A few of the common failures I have seen are the model becoming incoherent and spamming random 
                 tokens from other languages, collapse into spamming a single token which was most often take, 
                 or always copy pasting the previous action from the context. In the first failure the completions 
@@ -84,8 +92,7 @@
 
             <p>Check out this post by David Udell, <a href="https://www.lesswrong.com/posts/ZNXDRGshgoq3cmxhB/the-shard-theory-alignment-scheme">The Shard Theory Alignment Scheme,</a>
             for more info on our team's ideas.</p>
-
-            <br>
+            
                 <p>Another Smaller Scale experiment I ran was a tiny transformer playing prisoners dillemas against itself.
                     This transformer is trained from random initialization, and has a vocab size of 2. One token for cooperate and one token for defect.
                     It generates a sequence of coops and defects and gets rewarded per token based off a prisoner dillema of the current token and the previous token. 
@@ -98,7 +105,10 @@
                         [2, -0.738613]]<br>
                      This may represent a more complex optimal strategy compared to a good simple strategy. It does show a difference between 2 of the finetuning methods I tested.<br>
                      When training with PPO, the model imediately learned the alternating strategy and spent the rest of the training time upweighting this.<br>
-                    When training with rejection sampling, the model initially learned to always defect and later learned to alternate.</p>
+                    When training with rejection sampling, the model initially learned to always defect and later learned to alternate. <br>
+                    This algorithm is select the top half of the model's distribution by reward, and train the model to predict that using cross entropy loss.
+                    The loss function is the same as SSL, the optomization on the reward occurs in the dataset.
+                    This is limited to 1 bit of optomization on the reward per epoch, though this training run is very far away from this limit. </p>
                      <img src="images/ppo.jpg" alt="prisoner" width="1000" height="500">
                      <img src="images/rejection.jpg" alt="prisoner" width="1000" height="500">
                      <p>The x axis is epoch, the y axis is frequency. The colors represent which reward out of the payoff matrix was recieved.</p>
@@ -106,8 +116,7 @@
 
                     
 
-            <a href="https://github.com/MichaelEinhorn/trl-textworld">trl-textworld repo</a> <br>
-            <a href="https://github.com/MichaelEinhorn/prisonerUnitTest">prisonerUnitTest repo</a>
+            
 
             <!---->
             <!---->
