@@ -29,6 +29,23 @@
         <div id="wrapper">
 
             <h1>AI Alignment Research SERI MATS</h1>
+            
+            <h3>PPO and ACTDE comparison for mode collapse</h3>
+                <p>In this toy experiment, the model plays prisoner's dilemmas against its past self, 
+                    similar to the idea by <a href="https://arxiv.org/abs/2009.09153">Krueger et. al.</a> 
+                    We are not training via self play against a copy. Instead the model at time <i>t</i> plays against its action at time <i>t-1</i>.
+                    In this environment there are three main strategies, always cooperate, always defect and alternating.
+                    The reward matrix was selected so that alternating would be the optimal strategy. </p>
+
+                    <img src="images/actde-t1-1000.jpg">
+
+                    <p>We showed that ACTDE doesn't mode collapse on a toy prisoner's 
+                    dilemma learning task, but instead trains a mixed strategy. For more details see the 
+                    <a href="https://www.lesswrong.com/posts/A7RgYuYH4HywNeYWD/mode-collapse-in-rl-may-be-fueled-by-the-update-equation">post on lesswrong here.</a></p>
+                
+                 <a href="https://github.com/MichaelEinhorn/prisonerUnitTest">prisonerUnitTest repo</a> <br><br>
+
+            <h3>Trl-textworld</h3>
             <p>I was in the <a href="www.serimats.org">Stanford Existential Risk Initiative Machine Learning Alignment Theory Scholars (SERI MATS) program</a>.
                  I was the ML Engineer on Team Shard under the Agent Foundations Stream mentored by John Wentworth.</p>
 
@@ -39,7 +56,7 @@
                 I think it was still a valuable learning experience for how to set up experiments with language models, and how PPO works. </p>
 
                 <a href="https://github.com/MichaelEinhorn/trl-textworld">trl-textworld repo</a> <br>
-                <a href="https://github.com/MichaelEinhorn/prisonerUnitTest">prisonerUnitTest repo</a> <br><br>
+                
             
             <p>We are fine tunning a language model to play text adventures with RL and Rejection Sampling and will
                 interpret what this optimization process changes in the network with interpretability tools,
@@ -92,31 +109,6 @@
 
             <p>Check out this post by David Udell, <a href="https://www.lesswrong.com/posts/ZNXDRGshgoq3cmxhB/the-shard-theory-alignment-scheme">The Shard Theory Alignment Scheme,</a>
             for more info on our team's ideas.</p>
-            
-                <p>Another Smaller Scale experiment I ran was a tiny transformer playing prisoners dillemas against itself.
-                    This transformer is trained from random initialization, and has a vocab size of 2. One token for cooperate and one token for defect.
-                    It generates a sequence of coops and defects and gets rewarded per token based off a prisoner dillema of the current token and the previous token. 
-                    Whether the model decides to always cooperate or always defect means whether the training process was myopic or nonmyopic.
-                    <br>
-                    When using this payoff matrix, at discount rate 0.5, the strategies always cooperate and always defect have equal discounted returns. 
-                    The sum of all 4 rewards is 0, so a random sequence will get about 0 reward. 
-                    The interesting thing about this matrix is that the strategy of alternating cooperate and defect has higher discounted returns than either of the above at discount rates near 0.5.<br>
-                    [[0.5, -1.76139],<br>
-                        [2, -0.738613]]<br>
-                     This may represent a more complex optimal strategy compared to a good simple strategy. It does show a difference between 2 of the finetuning methods I tested.<br>
-                     When training with PPO, the model imediately learned the alternating strategy and spent the rest of the training time upweighting this.<br>
-                    When training with rejection sampling, the model initially learned to always defect and later learned to alternate. <br>
-                    This algorithm is select the top half of the model's distribution by reward, and train the model to predict that using cross entropy loss.
-                    The loss function is the same as SSL, the optomization on the reward occurs in the dataset.
-                    This is limited to 1 bit of optomization on the reward per epoch, though this training run is very far away from this limit. </p>
-                     <img src="images/ppo.jpg" alt="prisoner" width="1000" height="500">
-                     <img src="images/rejection.jpg" alt="prisoner" width="1000" height="500">
-                     <p>The x axis is epoch, the y axis is frequency. The colors represent which reward out of the payoff matrix was recieved.</p>
-                    
-
-                    
-
-            
 
             <!---->
             <!---->
