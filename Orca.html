@@ -29,9 +29,16 @@
         <div id="wrapper">
 
             <h1>Orca IoT AWS Developer Intern</h1>
-            <p>Developed software for management of construction sites. 
-            Developed Serverless APIs with Python using AWS Lambda, and Cloud Formation. 
-            Ran Machine Learning models on AWS Neuron and edge devices using Coral TPU, and Jetson Nano.</p>
+            <p>As a rising Junior I was an intern at Orca IoT, a startup developing software to manage construction sites more efficiently. 
+                A use case for computer vision is identifying images where heavy machinery is in use, such as a cherry picker, to monitor for OSHA compliance. 
+                I prototyped an object detection system both on the edge with a Jetson Nano, and in the cloud with AWS Inferentia. 
+                I solved the problem of processing a 4k image with a model that uses a much smaller image size, by slicing the image into overlapping tiles and merging the model's
+                detections from each tile into a single set for the larger image.
+                This created a pipeline where a different image could each be at each step at the same time to maximize throughput which minimizes cost.
+                This system was both more accurate and less expensive than using AWS Rekognition when tested on our in-house dataset. 
+                See a marketing demo of this solution below. I made the animation and the code for using the model, I am not the presenter.</p>
+
+                <iframe width="1280" height="720" src="https://www.youtube.com/embed/88mX9NCaKuA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
             <!---->
             <!---->
@@ -54,7 +61,7 @@
 
             <!-- Menu -->
             <nav id="menu">
-						<h2>Reports</h2>
+						<h2>Projects</h2>
                         <ul>
                             <li><a href="index.html">Home</a></li>
                             <li><a href="Orca.html">Orca IoT Marketing Demo</a></li>
@@ -69,30 +76,9 @@
 
                         </ul>
 					</nav>
-
-            <table>
-
-                <tr>
-                    <td>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/88mX9NCaKuA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </td>
-
-                    <td style="text-align:left;vertical-align:top;padding:0">
-                        <p>
-                            This is a marketing demo of how to divide an image into multiple overlapping tiles and recombine all the detected boxes. I made the animation and the code for the model, I am not the presenter.
-                            <br />
-                            I implemented a Yolo model in AWS Neuron using the Inferentia Chip which
-                            was both more accurate and less expensive per 100 images than AWS Rekognition analyzing our in house
-                            dataset. This program concurrently ran 3 instances of the model on the Inferentia Chip, preprocessing of slicing images into tiles,
-                            and postprocessing of removing duplicate detections and sending data to the SQL database on the CPU. This created a pipeline where a different image could be at each step and processed at the same time to maximize throughput which minimizes cost.
-
-
-                        </p>
-                    </td>
-
-                </tr>
-
-            </table>
+            
+            
+                    
 
 
 
