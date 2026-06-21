@@ -5,16 +5,20 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Dropped Pulses Signal Analysis Algorithm</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-    <body class="is-preload">
 
-        <!----
+<head>
+    <title>Dropped Pulses Signal Analysis Algorithm</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+    <!----
         <script>
             var url_string = window.location.href; //window.location.href
             var url = new URL(url_string);
@@ -25,154 +29,168 @@
         <iframe src="" id="pdf" width="100%" height="1200px"></iframe>
         <!---->
 
-        <!-- Wrapper -->
-        <div id="wrapper">
-
-        
-            <!---->
-            <!---->
-            <!-- Header -->
-            <header id="header">
-                
-                <div class="inner">
-                    <!-- Nav -->
-                    <nav>
-                        <ul>
-                            <li><a href="#menu">Menu</a></li>
-                        </ul>
-                    </nav>
-
-                </div>
-            </header>
+    <!-- Wrapper -->
+    <div id="wrapper">
 
 
+        <h1>Dropped Pulses Signal Analysis Algorithm</h1>
 
-            <!-- Menu -->
-            <nav id="menu">
-						<h2>Projects</h2>
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="DropPulses.html">Dropped Pulses Signal Analysis Algorithm</a></li>
-                            <li><a href="Orca.html">Orca IoT Marketing Demo</a></li>
-                            <li><a href="GTRIScalingStudy.html">ML Scaling Study and Mixup GTRI</a></li>
-                            <li><a href="MLClassProject.html">Semantic Segmentation ML Class Project</a></li>
-                            <li><a href="Unisim.html">Simulation of Trading on Uniswap Class Project</a></li>
-                            <li><a href="Composer.html">Blending Songs using an Autoencoder</a></li>
-                            <li><a href="Carnegie.html">Carnegie Mellon Game Design in Unity 3D</a></li>
-                            <li><a href="Shard.html">AI Alignment Research SERI MATS</a></li>
-                            <li><a href="FedRL.html">Speedup of Federated RL</a></li>
-                            <li><a href="resume.html">Resume</a></li>
 
-                        </ul>
-					</nav>
-
-            
-            <h1>Dropped Pulses Signal Analysis Algorithm</h1>
-            
-
-            <table>
-                <tr>
-                    <td style="text-align:left;vertical-align:top;padding:0">
-                        <img src="images/DroppedPulse.png" style="width: 30vw; height: auto;"></img>
-                    </td>
-                    <td style="text-align:left;vertical-align:top" colspan="2">
-                        <p>I developed an algorithm to detect dropped pulses in sequences of 
-                        <a href="https://en.wikipedia.org/wiki/Pulse-repetition_frequency">Pulse Repetition Intervals (PRI),</a> based on an algorithm used for Spellcheck. <br>
-                        A PRI is the interval between adjacent pulses in a sequence. When a pulse is dropped the resulting new PRI in the sum of the two original PRIs. <br>
-                        While checking this sum is simple, finding where to apply it within a larger sequence and then finding the best match sequence is time consuming to do manually. 
-                        An example is comparing a PRI sequence of 4, 2, 3, 5 and 3, 1, 2, 3, 5. 
+        <table>
+            <tr>
+                <td style="text-align:left;vertical-align:top;padding:0">
+                    <img src="images/DroppedPulse.png" style="width: 30vw; height: auto;"></img>
+                </td>
+                <td style="text-align:left;vertical-align:top" colspan="2">
+                    <p>I developed an algorithm to detect dropped pulses in sequences of
+                        <a href="https://en.wikipedia.org/wiki/Pulse-repetition_frequency">Pulse Repetition Intervals
+                            (PRI),</a> based on an algorithm used for Spellcheck. <br>
+                        A PRI is the interval between adjacent pulses in a sequence. When a pulse is dropped the
+                        resulting new PRI in the sum of the two original PRIs. <br>
+                        While checking this sum is simple, finding where to apply it within a larger sequence and then
+                        finding the best match sequence is time consuming to do manually.
+                        An example is comparing a PRI sequence of 4, 2, 3, 5 and 3, 1, 2, 3, 5.
                         The 4 at the beginning represents a dropped pulse as its the sum of the PRIs of 3 and 1.
-                        Simply checking the PRIs one by one results in every PRI being wrong, despite there only being one dropped pulse. <br>
-                        The issue is that a dropped pulse results in a shift of the whole sequence and the algorithm needs to take this into account.
-                        </p>
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <td style="text-align:center;vertical-align:top;padding:0">
-                        <h2>Edit distance in Spellcheck</h2>
-                        <img src="images/LetterDeletion.png" style="width: 30vw; height: auto;"></img>
-                        <p>
-                            The deleted l shifts all following letters. Comparing if <br> 
-                            the letters match in each position fails to identify <br>
-                            the word as similar with 1 deleted letter.
-                        </p>
-                        
-                    </td>
+                        Simply checking the PRIs one by one results in every PRI being wrong, despite there only being
+                        one dropped pulse. <br>
+                        The issue is that a dropped pulse results in a shift of the whole sequence and the algorithm
+                        needs to take this into account.
+                    </p>
+                </td>
 
-                    <td style="text-align:center;vertical-align:top;padding:0">
-                        <h2>DNA Frameshift Mutation</h2>
-                        <img src="images/frameshiftDNA.jpg" style="width: 30vw; height: auto;"></img><br>
+            </tr>
+            <tr>
+                <td style="text-align:center;vertical-align:top;padding:0">
+                    <h2>Edit distance in Spellcheck</h2>
+                    <img src="images/LetterDeletion.png" style="width: 30vw; height: auto;"></img>
+                    <p>
+                        The deleted l shifts all following letters. Comparing if <br>
+                        the letters match in each position fails to identify <br>
+                        the word as similar with 1 deleted letter.
+                    </p>
 
-                        <a href="https://ib.bioninja.com.au/types-of-mutations/">Figure source</a>
-                    </td>
+                </td>
 
-                    <td style="text-align:left;vertical-align:top">
-                        <p>I have seen similar problems in Spellcheck where a deleted or inserted letter shifts the rest of the word and in Biology with identifying frameshift mutations.
-                        While both the domain and use case are different from signal analysis, the shared shape of the problem is comparing sequences while considering shifts.
+                <td style="text-align:center;vertical-align:top;padding:0">
+                    <h2>DNA Frameshift Mutation</h2>
+                    <img src="images/frameshiftDNA.jpg" style="width: 30vw; height: auto;"></img><br>
+
+                    <a href="https://ib.bioninja.com.au/types-of-mutations/">Figure source</a>
+                </td>
+
+                <td style="text-align:left;vertical-align:top">
+                    <p>I have seen similar problems in Spellcheck where a deleted or inserted letter shifts the rest of
+                        the word and in Biology with identifying frameshift mutations.
+                        While both the domain and use case are different from signal analysis, the shared shape of the
+                        problem is comparing sequences while considering shifts.
                         <br>
-                        The <a href="https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm">Wagner Fischer algorithm</a> is able to identify the edit distance with operations 
+                        The <a href="https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm">Wagner Fischer
+                            algorithm</a> is able to identify the edit distance with operations
                         of insertion deletion and substitution, and was used as an early spellcheck algorithm.
-                        It is a Dynamic Programming algorithm that fills out a 2D table to find the optimal alignment for edit distance.
-                        The Wagner Fischer algorithm builds this alignment incrementally and selects the shortest path to each cell from the previous cells. 
-                        </p>
-                    </td>
+                        It is a Dynamic Programming algorithm that fills out a 2D table to find the optimal alignment
+                        for edit distance.
+                        The Wagner Fischer algorithm builds this alignment incrementally and selects the shortest path
+                        to each cell from the previous cells.
+                    </p>
+                </td>
 
-                </tr>
+            </tr>
 
-                <tr>
-                    <td style="text-align:center;vertical-align:top;padding:0">
-                        <h2>Wagner Fischer algorithm</h2>
-                        <img src="images/AlgorithmSpelling.png" style="height: 30vw; height: auto;"></img>
-                        <p>
-                            <span style="color: #009900;">Green - Start</span>&emsp;
-                            <span style="color: #0000ff;">Blue - Substitution</span> <br>
-                            <span style="color: #ff0000;">Red - Deletion</span>&emsp;
-                            <span style="color: #9900ff;">Purple - Insertion</span>
-                        </p>
-                        
-                    </td>
+            <tr>
+                <td style="text-align:center;vertical-align:top;padding:0">
+                    <h2>Wagner Fischer algorithm</h2>
+                    <img src="images/AlgorithmSpelling.png" style="height: 30vw; height: auto;"></img>
+                    <p>
+                        <span style="color: #009900;">Green - Start</span>&emsp;
+                        <span style="color: #0000ff;">Blue - Substitution</span> <br>
+                        <span style="color: #ff0000;">Red - Deletion</span>&emsp;
+                        <span style="color: #9900ff;">Purple - Insertion</span>
+                    </p>
 
-                    <td style="text-align:center;vertical-align:top;padding:0">
-                        <h2>Dropped Pulse Algorithm</h2>
-                        <img src="images/AlgorithmPulse.png" style="height: 30vw; height: auto;"></img><br>
-                        <p>
-                            <span style="color: #009900;">Green - Start</span>&emsp;
-                            <span style="color: #0000ff;">Blue - Substitution</span> <br>
-                            <span style="color: #ff0000;">Red - Dropped Pulse</span>&emsp;
-                            <span style="color: #9900ff;">Purple - Extra Pulse</span>
-                        </p>
-                        
-                    </td>
+                </td>
 
-                    <td style="text-align:left;vertical-align:top">
-                        <p>
-                            A substitution compares one observed letter with one reference letter while a deletion compares zero observed letters with one reference letter.
-                            The number of rows and columns an arrow crosses is how many elements that operation compares. 
-                            <br>
-                            While keeping the same general structure of the algorithm, it can be modified to work with PRI sequences. 
-                            The observed PRI sequence is allowed to start anywhere in the reference and wrap around the end, so the entire top row is a starting position.
-                            To work with numerical values, substitution uses a score of squared error instead of a constant value.
-                            Dropped Pulses match the sum of two reference PRIs with one observed PRI, so this corresponds to the red arrow crossing 2 columns and 1.
-                            Extra pulses work similarly but compare two observed PRIs with one reference PRI.
-                            The best distance on the bottom row corresponds to the best alignment, which in this case contains one dropped pulse.
-                        </p>
-                    </td>
+                <td style="text-align:center;vertical-align:top;padding:0">
+                    <h2>Dropped Pulse Algorithm</h2>
+                    <img src="images/AlgorithmPulse.png" style="height: 30vw; height: auto;"></img><br>
+                    <p>
+                        <span style="color: #009900;">Green - Start</span>&emsp;
+                        <span style="color: #0000ff;">Blue - Substitution</span> <br>
+                        <span style="color: #ff0000;">Red - Dropped Pulse</span>&emsp;
+                        <span style="color: #9900ff;">Purple - Extra Pulse</span>
+                    </p>
 
-                </tr>
+                </td>
 
-            </table>
+                <td style="text-align:left;vertical-align:top">
+                    <p>
+                        A substitution compares one observed letter with one reference letter while a deletion compares
+                        zero observed letters with one reference letter.
+                        The number of rows and columns an arrow crosses is how many elements that operation compares.
+                        <br>
+                        While keeping the same general structure of the algorithm, it can be modified to work with PRI
+                        sequences.
+                        The observed PRI sequence is allowed to start anywhere in the reference and wrap around the end,
+                        so the entire top row is a starting position.
+                        To work with numerical values, substitution uses a score of squared error instead of a constant
+                        value.
+                        Dropped Pulses match the sum of two reference PRIs with one observed PRI, so this corresponds to
+                        the red arrow crossing 2 columns and 1.
+                        Extra pulses work similarly but compare two observed PRIs with one reference PRI.
+                        The best distance on the bottom row corresponds to the best alignment, which in this case
+                        contains one dropped pulse.
+                    </p>
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!---->
+        <!---->
+        <!-- Header -->
+        <header id="header">
+
+            <div class="inner">
+                <!-- Nav -->
+                <nav>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </header>
 
 
 
-        </div>
+        <!-- Menu -->
+        <nav id="menu">
+            <h2>Projects</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="DropPulses.html">Dropped Pulses Signal Analysis Algorithm</a></li>
+                <li><a href="Orca.html">Orca IoT Marketing Demo</a></li>
+                <li><a href="GTRIScalingStudy.html">ML Scaling Study of Mixup GTRI</a></li>
+                <li><a href="MLClassProject.html">Semantic Segmentation ML Class Project</a></li>
+                <li><a href="Unisim.html">Simulation of Trading on Uniswap Class Project</a></li>
+                <li><a href="Composer.html">Blending Songs using an Autoencoder</a></li>
+                <li><a href="Carnegie.html">Carnegie Mellon Game Design in Unity 3D</a></li>
+                <li><a href="Shard.html">AI Alignment Research SERI MATS</a></li>
+                <li><a href="FedRL.html">Federated Reinforcement Learning Has Linear Speedup</a></li>
+                <li><a href="resume.html">Resume</a></li>
 
-        <!-- Scripts -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/browser.min.js"></script>
-        <script src="assets/js/breakpoints.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
+            </ul>
+        </nav>
 
-    </body>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
 </html>
