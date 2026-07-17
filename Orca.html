@@ -5,16 +5,20 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Orca IoT</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-    <body class="is-preload">
 
-        <!----
+<head>
+    <title>Orca IoT</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+    <!----
         <script>
             var url_string = window.location.href; //window.location.href
             var url = new URL(url_string);
@@ -25,72 +29,83 @@
         <iframe src="" id="pdf" width="100%" height="1200px"></iframe>
         <!---->
 
-        <!-- Wrapper -->
-        <div id="wrapper">
+    <!-- Wrapper -->
+    <div id="wrapper">
 
-            <h1>Orca IoT AWS Developer Intern</h1>
-            <p>As a rising Junior I was an intern at Orca IoT, a startup developing software to manage construction sites more efficiently. 
-                A use case for computer vision is identifying images where heavy machinery is in use, such as a cherry picker, to monitor for OSHA compliance. 
-                I prototyped an object detection system both on the edge with a Jetson Nano, and in the cloud with AWS Inferentia. 
-                I solved the problem of processing a 4k image with a model that uses a much smaller image size, by slicing the image into overlapping tiles and merging the model's
-                detections from each tile into a single set for the larger image.
-                This created a pipeline where a different image could each be at each step at the same time to maximize throughput which minimizes cost.
-                This system was both more accurate and less expensive than using AWS Rekognition when tested on our in-house dataset. 
-                See a marketing demo of this solution below. I made the animation and the code for using the model, I am not the presenter.</p>
+        <h1>Orca IoT AWS Developer Intern</h1>
+        <p>As a rising Junior I was an intern at Orca IoT, a startup developing software to manage construction sites
+            more efficiently.
+            A use case for computer vision is identifying images where heavy machinery is in use, such as a cherry
+            picker, to monitor for OSHA compliance.
+            I prototyped an object detection system both on the edge with a Jetson Nano, and in the cloud with AWS
+            Inferentia.
+            I solved the problem of processing a 4k image with a model that uses a much smaller image size, by slicing
+            the image into overlapping tiles and merging the model's
+            detections from each tile into a single set for the larger image.
+            This created a pipeline where a different image could each be at each step at the same time to maximize
+            throughput which minimizes cost.
+            This system was both more accurate and less expensive than using AWS Rekognition when tested on our in-house
+            dataset.
+            See a marketing demo of this solution below. I made the animation and the code for using the model, I am not
+            the presenter.</p>
 
-                <iframe width="1280" height="720" src="https://www.youtube.com/embed/88mX9NCaKuA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="1280" height="720" src="https://www.youtube.com/embed/88mX9NCaKuA" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
 
-            <!---->
-            <!---->
-            <!-- Header -->
-            <header id="header">
-                <div class="inner">
-
-
-                    <!-- Nav -->
-                    <nav>
-                        <ul>
-                            <li><a href="#menu">Menu</a></li>
-                        </ul>
-                    </nav>
-
-                </div>
-            </header>
-
+        <!---->
+        <!---->
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
 
 
-            <!-- Menu -->
-            <nav id="menu">
-						<h2>Projects</h2>
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="DropPulses.html">Dropped Pulses Signal Analysis Algorithm</a></li>
-                            <li><a href="Orca.html">Orca IoT Marketing Demo</a></li>
-                            <li><a href="GTRIScalingStudy.html">ML Scaling Study of Mixup GTRI</a></li>
-                            <li><a href="MLClassProject.html">Semantic Segmentation ML Class Project</a></li>
-                            <li><a href="Unisim.html">Simulation of Trading on Uniswap Class Project</a></li>
-                            <li><a href="Composer.html">Blending Songs using an Autoencoder</a></li>
-                            <li><a href="Carnegie.html">Carnegie Mellon Game Design in Unity 3D</a></li>
-                            <li><a href="Shard.html">AI Alignment Research SERI MATS</a></li>
-                            <li><a href="FedRL.html">Federated Reinforcement Learning Has Linear Speedup</a></li>
-                            <li><a href="resume.html">Resume</a></li>
+                <!-- Nav -->
+                <nav>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                    </ul>
+                </nav>
 
-                        </ul>
-					</nav>
-            
-            
-                    
+            </div>
+        </header>
 
 
 
-        </div>
+        <!-- Menu -->
+        <nav id="menu">
+            <h2>Projects</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="DropPulses.html">Dropped Pulses Signal Analysis Algorithm</a></li>
+                <li><a href="Orca.html">Orca IoT Marketing Demo</a></li>
+                <li><a href="GTRIScalingStudy.html">ML Scaling Study of Mixup GTRI</a></li>
+                <li><a href="MLClassProject.html">Semantic Segmentation ML Class Project</a></li>
+                <li><a href="Unisim.html">Simulation of Trading on Uniswap Class Project</a></li>
+                <li><a href="Composer.html">Blending Songs using an Autoencoder</a></li>
+                <li><a href="Carnegie.html">Carnegie Mellon Game Design in Unity 3D</a></li>
+                <li><a href="Shard.html">AI Alignment Research SERI MATS</a></li>
+                <li><a href="FedRL.html">Federated Reinforcement Learning Has Linear Speedup</a></li>
+                <li><a href="resume.html">Resume</a></li>
 
-        <!-- Scripts -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/browser.min.js"></script>
-        <script src="assets/js/breakpoints.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
+            </ul>
+        </nav>
 
-    </body>
+
+
+
+
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
 </html>
